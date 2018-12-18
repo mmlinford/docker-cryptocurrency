@@ -18,4 +18,7 @@ RUN ./autogen.sh
 RUN ./configure --without-gui --prefix=/dogecoin/depends/x86_64-unknown-linux-gnu
 RUN make
 
-CMD /dogecoin/src/dogecoind
+# container configuration
+# mainnet p2p, mainnet json-rpc, testnet p2p, testnet json-rpc
+EXPOSE 22556 22555 44556 44555
+ENTRYPOINT ["/dogecoin/src/dogecoind"]
